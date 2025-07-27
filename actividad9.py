@@ -26,7 +26,18 @@ def buscar_peliculas_genero():
     if not genero_encontrado:
         print("No hay peliculas de ese genero.")
     print("-"*20)
+def eliminar_pelicula():
+    titulo= input("Ingrese el titulo de la pelicula a eliminar")
+    titulo_encontrado=False
 
+    for i in peliculas:
+        if i[0].lower()== titulo.lower():
+            peliculas.remove(i)
+            titulo_encontrado=True
+            print(f"Pelicula {titulo} eliminada del catalogo")
+    if not titulo_encontrado:
+        print(f"No se encontro la pelicula {titulo} en el catalogo")
+        print("-"*20)
 while True:
     print("Menu")
     print("1. Agregar peliculas")
@@ -44,4 +55,8 @@ while True:
             mostrar_peliculas()
         case "3":
             buscar_peliculas_genero()
+        case "4":
+            eliminar_pelicula()
+        case "5":
+
 
