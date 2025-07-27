@@ -6,17 +6,28 @@ def agregar_peliculas():
         año = int(input("Ingrese el año de estreno: "))
         genero = input("Ingrese el genero de la pelicula: ")
         peliculas.append([titulo, año, genero])
+        print("-"*20)
     print("Pelicula agregada")
 def mostrar_peliculas():
     if not peliculas:
         print("No hay peliculas agregadas al catalogo")
         return
-    print("Catalogo de peliculas")
+    print("-----Catalogo de peliculas-----")
     for i in peliculas:
-        print(i)
+        print(f"-Titulo: {i[0]}, Año: {i[1]}, Genero: {i[2]}")
+        print("-"*20)
+def buscar_peliculas_genero():
+    genero = input("Ingrese el genero que desea buscar: ")
+    genero_encontrado = False
+    for i in peliculas:
+        if i[2].lower() == genero.lower():
+            print(f"Nombre: {i[0]},Año: {i[1]}")
+            genero_encontrado=True
+    if not genero_encontrado:
+        print("No hay peliculas de ese genero.")
+    print("-"*20)
 
 while True:
-    print("-"*20)
     print("Menu")
     print("1. Agregar peliculas")
     print("2. Mostrar peliculas registradas")
@@ -31,3 +42,6 @@ while True:
             agregar_peliculas()
         case "2":
             mostrar_peliculas()
+        case "3":
+            buscar_peliculas_genero()
+
