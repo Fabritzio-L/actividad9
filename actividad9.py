@@ -54,12 +54,11 @@ def mostrar_estadisticas():
                     if j[2].lower()==genero:
                         contador +=1
                 print(f"-{genero}: {contador}")
-        if peliculas:
-            antigua = peliculas[0]
-            for i in peliculas:
-                if i[1]< antigua[1]:
-                    antigua=i
-            print(f"Pelicula mas antigua: {antigua[0]}-{antigua[1]}")
+        antigua = peliculas[0]
+        for i in peliculas:
+            if i[1]< antigua[1]:
+                antigua=i
+        print(f"Pelicula mas antigua: {antigua[0]}--{antigua[1]}")
     print("-"*20)
 while True:
     print("Menu")
@@ -82,4 +81,9 @@ while True:
             eliminar_pelicula()
         case "5":
             mostrar_estadisticas()
-
+        case "6":
+            print("Saliendo del programa...")
+            break
+        case _:
+            print("Opcion invalida, ingrese una opcion valida.")
+            print("-"*20)
