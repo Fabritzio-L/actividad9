@@ -38,6 +38,29 @@ def eliminar_pelicula():
     if not titulo_encontrado:
         print(f"No se encontro la pelicula {titulo} en el catalogo")
         print("-"*20)
+def mostrar_estadisticas():
+    if not peliculas:
+        print("No hay peliculas registradas")
+    else:
+        print(f"Total de peliculas registradas: {len(peliculas)}")
+        generos=[]
+        print("---Peliculas por generos---")
+        for i in peliculas:
+            genero = i[2].lower()
+            if genero not in generos:
+                generos.append(genero)
+                contador =0
+                for j in peliculas:
+                    if j[2].lower()==genero:
+                        contador +=1
+                print(f"-{genero}: {contador}")
+        if peliculas:
+            antigua = peliculas[0]
+            for i in peliculas:
+                if i[1]< antigua[1]:
+                    antigua=i
+            print(f"Pelicula mas antigua: {antigua[0]}-{antigua[1]}")
+    print("-"*20)
 while True:
     print("Menu")
     print("1. Agregar peliculas")
@@ -58,5 +81,5 @@ while True:
         case "4":
             eliminar_pelicula()
         case "5":
-
+            mostrar_estadisticas()
 
